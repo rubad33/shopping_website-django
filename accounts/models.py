@@ -24,7 +24,7 @@ class MyAccountManager(BaseUserManager):
             last_name=last_name,
             username=username,
             email=self.normalize_email(email),
-            password=password
+            password=password,
         )
         user.is_admin = True
         user.is_staff = True
@@ -43,7 +43,7 @@ class Account(AbstractBaseUser):
     
     # Email field is used as the unique identifier for the user
     email = models.EmailField(max_length=100, unique=True)
-    phone_number = models.CharField(max_length=15, unique=True)
+    phone_number = models.CharField(max_length=50)
     
     # Custom user manager
     date_joined = models.DateTimeField(auto_now_add=True)
