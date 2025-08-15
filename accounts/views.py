@@ -69,7 +69,7 @@ def register(request):
            #essages.success(request,'Thank you for registering with us. We have sent you an activation email, please check your inbox and click on the link to activate your account.')
            return redirect('/accounts/login/?command=verification&email='+email)
     else:
-      form = RegistrationForm(request.POST)
+      form = RegistrationForm()
    
    
     context = {
