@@ -1,0 +1,54 @@
+/* hide only radio buttons */
+.rate > input {
+    display: none;
+}
+
+/* container setup */
+.rate {
+    display: inline-block;
+    border: 0;
+}
+
+/* star alignment */
+.rate > label {
+    float: right;
+}
+
+/* show full star */
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.5rem;  /* bigger size for visibility */
+    font-family: "Font Awesome 5 Free";   /* important */
+    font-weight: 900;                     /* for solid icons */
+    content: "\f005";  /* full star */
+    margin: 0;
+    padding: 0.3rem .2rem;
+    cursor: pointer;
+    color: #ddd;  /* <-- add default grey */
+}
+
+/* half star */
+.rate .half:before {
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+    color: #ddd; /* also grey by default */
+}
+
+/* click and hover effects */
+input:checked ~ label,
+label:hover ~ label {
+    color: #ffb503; /* bright yellow */
+}
+
+input:checked + label:hover,
+input:checked ~ label:hover,
+input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label {
+    color: #cc9000; /* darker yellow when hover */
+}
+
+/* extra for rating stars inside reviews */
+.rating-star i {
+    color: #ffb503 !important;
+}
