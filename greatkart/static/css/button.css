@@ -1,0 +1,55 @@
+/* Fixed dynamic button */
+.button {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;   /* ✅ needed */
+  z-index: 0;         /* ✅ needed */
+  font-family: inherit;
+  font-size: 16px;
+}
+
+/* Gradient glow layer */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+
+/* Blurred glowing background */
+.button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: scale(0.9);
+  filter: blur(20px);
+  z-index: -2;
+  transition: all 0.6s ease;
+}
+
+/* Hover effects */
+.button:hover::before {
+  transform: rotate(-180deg);
+}
+
+.button:hover::after {
+  filter: blur(30px);
+}
+
+.button:active::before {
+  transform: scale(0.8);
+}
